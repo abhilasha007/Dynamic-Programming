@@ -1,11 +1,14 @@
-/**
- *Given a string s. 
+// Minimum insertions in string to make palindrome =  m - LPS
+
+/*
+Given a string s. 
 In one step you can insert any character at any index of the string.
 Return the minimum number of steps to make s palindrome.
 Input: s = "mbadm"
 Output: 2
 Explanation: String can be "mbdadbm" or "mdbabdm" 
 */
+
 #include<bits/stdc++.h>
 using namespace std;
 int minInsertions(string s) {

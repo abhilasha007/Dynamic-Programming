@@ -1,7 +1,9 @@
+// Minimum deletions to make string palindrome = m - LPS
 /**
  Given a string of S as input. Your task is to write a program to remove or delete minimum number of 
  characters from the string so that the resultant string is palindrome.
 **/
+
 #include<bits/stdc++.h>
 using namespace std;
 

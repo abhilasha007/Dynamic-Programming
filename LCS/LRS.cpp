@@ -1,10 +1,11 @@
-/**
- Given a string, find the length of the longest repeating subsequence such that 
+// LRS = LCS(s, s) when checking equal make sure i!=j
+
+/*Given a string, find the length of the longest repeating subsequence such that 
  the two subsequences don’t have same string character at the same position, 
  i.e., any i’th character in the two subsequences shouldn’t have the same index in 
  the original string.
 **/
-// { Driver Code Starts
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -19,7 +20,7 @@ class Solution {
 		    
 		    for(int i=1; i<=n; ++i){
 		        for(int j=1; j<=n; ++j){
-		            if(str[i-1]==str[j-1] && i!=j){
+		            if(str[i-1]==str[j-1] && i!=j){ //
 		                t[i][j] = 1 + t[i-1][j-1];
 		            }
 		            else {
@@ -31,7 +32,6 @@ class Solution {
 		}
 };
 
-// { Driver Code Starts.
 int main(){
 	int tc;
 	cin >> tc;
@@ -43,4 +43,4 @@ int main(){
 		cout << ans << "\n";
 	}
 	return 0;
-}  // } Driver Code Ends
+}

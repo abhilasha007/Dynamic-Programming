@@ -1,4 +1,6 @@
-//Find length of longest common substring of 2 strings
+// LCSubStr = LCS, in else case t[i][j] = 0; maintain max variable
+
+//Find length of longest common substring of 2 strings, i.e., lcs that is continuous 
 #include<bits/stdc++.h>
 using namespace std;
 int LCsubstring(string S1, string S2){
@@ -25,7 +27,6 @@ int LCsubstring(string S1, string S2){
             }
         }
     }
-    // return t[n][m];
     return result;
 }
 

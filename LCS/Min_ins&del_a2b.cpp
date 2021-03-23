@@ -1,3 +1,7 @@
+// Minimum deletions from a = m - LCS
+// Minimum insertions in remaining a = n - LCS
+// total ins and del operations = m + n - 2*LCS
+
 /**
  * Given two strings str1 and str2. The task is to remove or insert the minimum number of characters from/in str1 so as to transform it into str2. 
  * It could be possible that the same character needs to be removed/deleted from one point of str1 and inserted to some another point.
@@ -12,8 +16,10 @@ Example 1:
 Input: "sea", "eat"
 Output: 2
 **/
+
 #include<bits/stdc++.h>
 using namespace std;
+
 int minOperations(string str1, string str2) 
 { 
     int m = str1.length();
@@ -35,7 +41,5 @@ int minOperations(string str1, string str2)
             }
         }
     }
-    int ins = m - t[m][n];
-    int dels = n - t[m][n];
     return m + n - 2*t[m][n];
 } 

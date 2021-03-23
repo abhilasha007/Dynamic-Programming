@@ -1,7 +1,27 @@
 //Find length of longest common subsequence of 2 strings
+/**
+ * Given two strings text1 and text2, return the length of their longest common subsequence. 
+
+    Example 1:
+    Input: text1 = "abcde", text2 = "ace" 
+    Output: 3  
+    Explanation: The longest common subsequence is "ace" and its length is 3.
+
+    Example 2:
+    Input: text1 = "abc", text2 = "abc"
+    Output: 3
+    Explanation: The longest common subsequence is "abc" and its length is 3.
+
+    Example 3:
+    Input: text1 = "abc", text2 = "def"
+    Output: 0
+    Explanation: There is no such common subsequence, so the result is 0.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
-//DP
+
+//--------------------------------- Dynamic Programming --------------------------------------//
 int longestCommonSubsequence(string text1, string text2) {
     int n = text1.size(); int m = text2.size();
     int t[n+1][m+1];
@@ -24,7 +44,8 @@ int longestCommonSubsequence(string text1, string text2) {
     }
     return t[n][m];
 }
-//MEMOIZATION------------------------------------------------------------------//
+
+//------------------------------------MEMOIZATION-------------------------------------------//
 int LCSMemHelper(string x, string y, int n, int m, int** t) {
     if(n==0 || m==0){
         return 0;
@@ -52,7 +73,8 @@ int LCSmem(string x, string y, int n, int m) {
     }
     return LCSMemHelper(x, y, n, m, dp);
 }
-//RECURSIVE -------------------------------------------------------------------//
+
+//------------------------------------- RECURSIVE ----------------------------------------------//
 int LCS(string x, string y, int n, int m) {
     if(n==0 || m==0) {
         return 0;
@@ -64,8 +86,30 @@ int LCS(string x, string y, int n, int m) {
     return max(LCS(x, y, n-1, m), LCS(x, y, n, m-1));
 }
 
+
+// Driver code
 int main() {
     string x = "abcdegh";
     string y = "absdrghf"; 
     cout<<"Length of longest common subsequence is " << LCS(x, y, x.length(), y.length());
 }
+
+/**
+ * A subsequence of a string is a new string generated from the original string with 
+ * some characters (can be none) deleted without changing the relative order of the 
+ * remaining characters.
+ * For example, "ace" is a subsequence of "abcde".
+ * A common subsequence of two strings is a subsequence that is common to both strings.
+**/
+/**
+LCS 
+SCS = m + n - LCS
+LPS = LCS(x, rev(x))
+LRS = LCS(x, x) and in if condition also check i!=j
+
+LCsubstr --> LCS but maintain a result variable; in else case t[i][j] = 0; 
+
+min insertions & deletions to convert a to b = (m-LCS) + (n-LCS) = m + n - 2*LCS
+min insertions for palindrome = m - LPS 
+min deletions for palindrome = m - LPS
+**/

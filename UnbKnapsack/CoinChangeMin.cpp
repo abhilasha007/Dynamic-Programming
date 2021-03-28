@@ -13,11 +13,8 @@ Explanation: 11 = 5 + 5 + 1
 using namespace std;
 int minCoins(int coins[], int n, int sum) 
 { 
-    // int t[n+1][sum+1];
-    bool** t = new bool*[n+1];
-    for(int i=0; i<=n; ++i){
-        t[i] = new bool[sum+1];
-    } 
+    int t[n+1][sum+1];
+    
     //Initialization
     //first row
     for(int i=0; i<=sum; ++i) {

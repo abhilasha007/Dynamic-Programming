@@ -17,12 +17,15 @@ using namespace std;
 int coinChangeMax(int coins[], int n, int amount) {
     int t[n+1][amount+1];
     
+    // when we amount = 0
     for(int i=0; i<=n; ++i) {
         t[i][0] = 1;
     }
+    // when no. of coins = 0
     for(int i=1; i<=amount; ++i) {
         t[0][i] = 0;
     }
+    
     for(int i=1; i<=n; ++i) {
         for(int j=1; j<=amount; ++j) {
             if(coins[i-1] > j) {

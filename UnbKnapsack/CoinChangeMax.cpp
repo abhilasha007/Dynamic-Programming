@@ -15,11 +15,8 @@ Explanation: there are four ways to make up the amount:
 #include<bits/stdc++.h>
 using namespace std;
 int coinChangeMax(int coins[], int n, int amount) {
-    // int t[n+1][amount+1];
-    bool** t = new bool*[n+1];
-    for(int i=0; i<=n; ++i){
-        t[i] = new bool[amount+1];
-    } 
+    int t[n+1][amount+1];
+    
     for(int i=0; i<=n; ++i) {
         t[i][0] = 1;
     }
